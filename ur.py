@@ -23,7 +23,7 @@ def get_board_and_move(file):
 
         i = 0
         while i < 6:
-            row = list(f.readline().strip)
+            row = list(f.readline().strip())
             board.append(row)
             i+=1
     return board, player
