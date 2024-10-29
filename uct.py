@@ -100,6 +100,7 @@ def uct_algorithm(board, player, num_simulations, detail):
         
     # Select move with the highest win rate
     print("FINAL Move selected:", best_move)
+    return best_move
 
 def simulate_random_game(state, player, detail):
     # Plays random moves until reaching a terminal state

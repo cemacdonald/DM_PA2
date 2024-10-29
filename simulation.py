@@ -5,7 +5,6 @@ import ur, uct, pmcgs
 
 def play_game(algorithm_1, algorithm_2):
     board = [['O' for _ in range(7)] for _ in range(6)]
-    
     current_board = copy.deepcopy(board)
     curr_player = 'R'
 
@@ -47,7 +46,7 @@ def player_move(board, curr_player, algorithm, simulations = None):
                 move = int(input("Select a column for your move. (1 - 7)\n"))
                 if move < 1 or move > 7:
                     print("Input should be a valid column number. Try again")
-                elif board[0][move] != 'O': #check if able to place token there
+                elif board[0][move - 1] != 'O': #check if able to place token there
                     print("Do not pick a full column. Try again")
                 else:
                     return move
@@ -67,7 +66,10 @@ def run_tournament(algorithms):
     }
 
     for algo1 in algorithms:
+        print("new algo 1")
+        print(algo1)
         for algo2 in algorithms:
+            print(algo2)
             if algo1 == algo2:
                 results[algo1[0]].append('-')
                 continue
@@ -84,8 +86,8 @@ def main():
         ("UR", None),
         ("PMCGS500", 500),
         ("PMCGS10K", 10000),
-        ("UTC500", 500),
-        ("UTC10K", 10000)
+        ("UCT500", 500),
+        ("UCT10K", 10000)
     ]
 
     results = run_tournament(algorithms)
