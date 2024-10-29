@@ -1,5 +1,7 @@
 import random 
 import sys
+
+#gets random move and returns column, if no moves available returns None
 def uniform_random(board, player):
     legal_moves = []
     for col in range(7):
@@ -9,7 +11,7 @@ def uniform_random(board, player):
     if len(legal_moves) == 0:
         return None
 
-    index = random.randint(0,len(legal_moves))
+    index = random.randint(0,len(legal_moves)- 1)
 
     return legal_moves[index]
 
